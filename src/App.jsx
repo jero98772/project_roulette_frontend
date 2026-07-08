@@ -65,7 +65,7 @@ function App() {
           setCatalogsLoaded(true);
           setApiOk(true);
         } catch {
-          setError("Couldn't load the catalog from the API — check that it's running on localhost:9600.");
+          setError("Couldn't load the catalog from the API — check that it's running on 127.0.0.1:9600.");
           setApiOk(false);
         }
       })();
@@ -154,7 +154,7 @@ function App() {
       setApiOk(true);
     } catch {
       setApiOk(false);
-      setError("Couldn't reach the API at localhost:9600. Make sure the server is running.");
+      setError("Couldn't reach the API at 127.0.0.1:9600. Make sure the server is running.");
       clearFlicker();
       setSpinning(false);
       return;
@@ -193,7 +193,7 @@ function App() {
           typeof val === "string" ? val : val.name || JSON.stringify(val),
       }));
     } catch {
-      setError("Peek failed — API unreachable at localhost:9600.");
+      setError("Peek failed — API unreachable at 127.0.0.1:9600.");
     }
     setPeekLoading((prev) => ({ ...prev, [field]: false }));
   };
@@ -236,8 +236,8 @@ function App() {
             <span
               className={`api-dot ${apiOk === true ? "ok" : apiOk === false ? "bad" : ""}`}
             />
-            {apiOk === true && "API connected · localhost:9600"}
-            {apiOk === false && "API unreachable · localhost:9600"}
+            {apiOk === true && "API connected · 127.0.0.1:9600"}
+            {apiOk === false && "API unreachable · 127.0.0.1:9600"}
             {apiOk === null && "checking API…"}
             <button onClick={checkApi}>retry</button>
           </div>
@@ -491,6 +491,14 @@ function App() {
             </div>
           </div>
         </div>
+
+        {spinning && (
+          <div className="loading-message">
+            We work with a llm it can take a time , we need to genera 5 candidates,
+            select the valid candidates and generate the description for the proyect,
+            Thanks for wait , you will suffer :)
+          </div>
+        )}
 
         {result && (
           <div className="payout-tray">

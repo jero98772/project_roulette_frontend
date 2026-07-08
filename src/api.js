@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:9600/api/v1";
+const API_BASE = "/api/v1";
 
 export async function apiGet(path) {
   const res = await fetch(`${API_BASE}${path}`);

@@ -641,6 +641,26 @@ body {
   letter-spacing: 1px;
 }
 
+/* ---------- Loading message ---------- */
+.loading-message {
+  max-width: 760px;
+  margin: 16px auto;
+  background: rgba(246, 177, 26, 0.08);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold-light);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.6;
+  animation: pulse-glow 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 6px rgba(246, 177, 26, 0.15); }
+  50% { box-shadow: 0 0 18px rgba(246, 177, 26, 0.35); }
+}
+
 /* ---------- Result / payout tray ---------- */
 .payout-tray {
   margin-top: 22px;
