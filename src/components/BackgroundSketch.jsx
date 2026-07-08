@@ -21,7 +21,7 @@ const BackgroundSketch = forwardRef(function BackgroundSketch(_props, ref) {
       const anim = () => {
         p.push();
         particles.forEach((pt) => {
-          p.fill(255, 183, 3, Math.max(0, pt.life * 4));
+          p.fill(246, 177, 26, Math.max(0, pt.life * 4));
           p.text(pt.g, pt.x, pt.y);
           pt.x += pt.vx;
           pt.y += pt.vy;
@@ -59,7 +59,7 @@ const BackgroundSketch = forwardRef(function BackgroundSketch(_props, ref) {
 
       p.draw = () => {
         p.clear();
-        p.fill(57, 255, 136, 55);
+        p.fill(246, 177, 26, 40);
         cols.forEach((col) => {
           const g = glyphs[Math.floor(Math.random() * glyphs.length)];
           p.text(g, col.x, col.y);
